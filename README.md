@@ -14,7 +14,7 @@ An attacker or insider attempts to copy sensitive data from a system to another 
 
 ### 1. Created a Sensitive File
 A file named `secret.txt` was created on the Desktop containing confidential information.
-
+![Filename](./images/secret.png)
 ---
 
 ### 2. Enabled File Auditing
@@ -24,7 +24,7 @@ File system auditing was enabled using:
 ```powershell
 auditpol /set /subcategory:"File System" /success:enable
 ```
-
+![Powershell](./images/psaudit.png)
 Auditing was then configured on the file to monitor read/write access via:
 
 - Right-click file → Properties  
@@ -41,7 +41,7 @@ The file was copied to another directory:
 ```powershell
 Copy-Item "C:\Users\vboxuser\Desktop\secret.txt.txt" -Destination "C:\Temp\stolen.txt"
 ```
-
+![Powershell](./images/pssecret.png)
 ---
 
 ### 4. Log Analysis
@@ -57,7 +57,7 @@ Filtered for:
 ```
 Event ID: 4663
 ```
-
+![Event Viewer](./images/4663.png)
 ---
 
 ## 🔍 Key Findings
